@@ -11,7 +11,8 @@ class ExcelExportController extends Controller
     public static function export()
     {
     	$filename = config('app.excel_file');
-		Excel::download(new BooksExport, $filename);
-        return redirect('/')->with('success', 'Выгружено в Excel');
+    	Excel::store(new BooksExport(), 'excel_exports/'.$filename, 'local');
+        return redirect('/')->with('success', 'Выгружено в Excel в /storage/app/excel_exports/');
     }
+
 }

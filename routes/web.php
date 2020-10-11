@@ -16,7 +16,4 @@ use App\Http\Controllers\ExcelExportController;
 
 Route::get('/', [BooksController::class, 'index']);
 Route::get('/download', [ExcelExportController::class, 'export'])->name("download");
-//Route::get('user/profile', [UserProfileController::class, 'show'])->name('profile');
-//Route::any('download', ['as' => 'books-dl', 'uses' =>'ExcelExportController@export']);
-//Route::get('download', [ExcelExportController::class, 'export']);
 Route::resource('books', BooksController::class);
