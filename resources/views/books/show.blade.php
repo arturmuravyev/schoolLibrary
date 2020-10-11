@@ -11,7 +11,7 @@
                 <h2>  {{ $book->title }}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-warning" href="{{ route('books.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+                <a class="btn btn-warning" href="{{ route('books.index') }}" title="Назад"> <i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>

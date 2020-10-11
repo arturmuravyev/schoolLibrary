@@ -73,9 +73,9 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        //
+        return view('books.edit', compact('book'));
     }
 
     /**
@@ -85,9 +85,15 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
     {
-        //
+        $request->validate([
+            'title' => 'required'
+        ]);
+        $book->update($request->all());
+
+        return redirect()->route('books.index')
+            ->with('success', 'Книга была успешно отредактирована');
     }
 
     /**
@@ -96,9 +102,12 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
-        //
+        $book->delete();
+
+        return redirect()->route('books.index')
+            ->with('success', 'Книга Удалена');
     }
 
     public static function getPossibleCovers()
