@@ -11,6 +11,9 @@
                 <a class="btn btn-success" href="{{ route('books.create') }}" title="Добавить Книгу"> <i class="fas fa-plus-circle"></i>
                 Добавить
                 </a>
+                <a class="btn btn-primary" href="{{ route('download') }}" title="Выгрузить в Excel"> <i class="fas fa-upload"></i>
+                Выгрузить в Excel
+                </a>
             </div>
         </div>
     </div>
@@ -56,7 +59,7 @@
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                        <button type="submit" title="delete" style="border: none; cursor: pointer; background-color:transparent;">
                             <i class="fas fa-trash fa-lg text-danger ml-3"></i>
 
                         </button>
